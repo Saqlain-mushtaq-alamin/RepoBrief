@@ -10,7 +10,7 @@ readme = "README.md"
 license = "MIT"
 requires-python = ">=3.9"
 authors = [
-    { name = "Your Name", email = "you@example.com" },
+    { name = "RepoBrief Maintainers", email = "maintainers@repobrief.dev" },
 ]
 keywords = ["llm", "cli", "codebase", "context", "ollama", "ai"]
 classifiers = [

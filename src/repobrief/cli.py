@@ -52,6 +52,17 @@ FORMAT_MAP = {
 }
 
 
+def _write_stdout(text: str) -> None:
+    """Safely print text to stdout with UTF-8 encoding on all platforms."""
+    try:
+        sys.stdout.buffer.write(text.encode("utf-8"))
+        if not text.endswith("\n"):
+            sys.stdout.buffer.write(b"\n")
+        sys.stdout.buffer.flush()
+    except Exception:
+        print(text)
+
+
 def _check_first_run(config) -> None:
     """Detect first-run scenario and guide the user through setup."""
     from rich.panel import Panel
@@ -274,9 +285,9 @@ def pack(
                 info("Digest copied to clipboard!")
             else:
                 warning("Could not copy to clipboard. Printing to stdout instead.")
-                print(digest, flush=False)
+                _write_stdout(digest)
         else:
-            print(digest, flush=False)
+            _write_stdout(digest)
 
         success("Done!")
 

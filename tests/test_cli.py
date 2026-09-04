@@ -71,7 +71,7 @@ class TestChatCommand:
         """Chat without backend configured should show a config error."""
         runner = CliRunner()
         result = runner.invoke(
-            main, 
+            main,
             ["chat", str(tmp_repo), "--backend", "cloud"],
             env={"ANTHROPIC_API_KEY": None, "OPENAI_API_KEY": None, "REPOBRIEF_API_KEY": None}
         )

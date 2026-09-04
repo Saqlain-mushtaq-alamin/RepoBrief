@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "repobrief"
-version = "0.1.0"
+version = "0.1.1"
 description = "Pack any repo into clean LLM context, then chat with it — using Claude, GPT, or a fully offline Ollama model."
 readme = "README.md"
 license = "MIT"

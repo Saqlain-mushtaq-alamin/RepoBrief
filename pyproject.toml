@@ -50,10 +50,9 @@ cloud = [
 repobrief = "repobrief.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/yourusername/repobrief"
-Repository = "https://github.com/yourusername/repobrief"
-Issues = "https://github.com/yourusername/repobrief/issues"
-
+Homepage = "https://github.com/Saqlain-mushtaq-alamin/RepoBrief"
+Repository = "https://github.com/Saqlain-mushtaq-alamin/RepoBrief"
+Issues = "https://github.com/Saqlain-mushtaq-alamin/RepoBrief/issues"
 # -- Tool Configuration --------------------------------------------------------
 
 [tool.ruff]

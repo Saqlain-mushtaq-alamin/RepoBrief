@@ -63,7 +63,7 @@ def _write_stdout(text: str) -> None:
         print(text)
 
 
-def _check_first_run(config) -> None:
+def _check_first_run(config, explicit_backend: bool = False) -> None:
     """Detect first-run scenario and guide the user through setup."""
     from rich.panel import Panel
 
@@ -77,8 +77,8 @@ def _check_first_run(config) -> None:
     except Exception:
         pass
 
-    if has_cloud_key or has_ollama:
-        return  # Already configured
+    if has_cloud_key or has_ollama or explicit_backend:
+        return  # Already configured or explicitly chosen
 
     console.print(
         Panel(
@@ -423,7 +423,7 @@ def chat(
         extra_excludes = list(exclude) + config.exclude
 
         # -- Step 3: First-run check -------------------------------------------
-        _check_first_run(config)
+        _check_first_run(config, explicit_backend=(backend is not None))
 
         # -- Step 4: Initialize backend ----------------------------------------
         if config.backend == "ollama":

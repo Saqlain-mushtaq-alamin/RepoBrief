@@ -70,7 +70,11 @@ class TestChatCommand:
     def test_chat_requires_backend(self, tmp_repo):
         """Chat without backend configured should show a config error."""
         runner = CliRunner()
-        result = runner.invoke(main, ["chat", str(tmp_repo)])
+        result = runner.invoke(
+            main, 
+            ["chat", str(tmp_repo), "--backend", "cloud"],
+            env={"ANTHROPIC_API_KEY": None, "OPENAI_API_KEY": None, "REPOBRIEF_API_KEY": None}
+        )
         # Exit code 1 because no API key is set
         assert result.exit_code == 1
 
